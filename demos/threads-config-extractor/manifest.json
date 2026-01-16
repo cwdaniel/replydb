@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "ReplyDB Threads Config Extractor",
+  "description": "Extract configuration needed for ReplyDB from Threads posts",
+  "version": "1.0.2",
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.threads.net/*",
+    "https://threads.net/*",
+    "https://www.threads.com/*",
+    "https://threads.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.threads.net/*", "https://threads.net/*", "https://www.threads.com/*", "https://threads.com/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://www.threads.net/*", "https://threads.net/*", "https://www.threads.com/*", "https://threads.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
