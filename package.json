@@ -1,0 +1,65 @@
+{
+  "name": "replydb",
+  "version": "0.1.0",
+  "description": "A database where replies are writes. Event-sourced data layer using social platform replies as the append-only log.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./adapters/threads": {
+      "types": "./dist/adapters/threads/index.d.ts",
+      "import": "./dist/adapters/threads/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src scripts",
+    "lint:fix": "eslint src scripts --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "database",
+    "event-sourcing",
+    "threads",
+    "social",
+    "append-only",
+    "orm",
+    "experimental"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwdaniel/replydb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cwdaniel/replydb/issues"
+  },
+  "homepage": "https://github.com/cwdaniel/replydb#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@vitest/coverage-v8": "^2.1.0",
+    "eslint": "^9.15.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.16.0",
+    "vitest": "^2.1.0"
+  }
+}
