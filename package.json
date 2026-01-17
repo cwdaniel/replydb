@@ -13,6 +13,10 @@
     "./adapters/threads": {
       "types": "./dist/adapters/threads/index.d.ts",
       "import": "./dist/adapters/threads/index.js"
+    },
+    "./adapters/x": {
+      "types": "./dist/adapters/x/index.d.ts",
+      "import": "./dist/adapters/x/index.js"
     }
   },
   "files": [
